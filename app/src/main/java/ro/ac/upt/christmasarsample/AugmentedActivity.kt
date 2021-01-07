@@ -53,10 +53,10 @@ class AugmentedActivity : AppCompatActivity() {
             .thenAccept{renderable = it}
 
 
-           .exceptionally{
-               Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG)
-               null
-           }
+           //.exceptionally{
+              // Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG)
+           //    null
+          // }
 
     }
 
