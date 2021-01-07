@@ -28,7 +28,7 @@ class AugmentedActivity : AppCompatActivity() {
 
         arFragment = supportFragmentManager.findFragmentById(R.id.scf_central) as ArFragment
 
-        TODO("2. Invoke addRenderableToScene once a tap is executed over the AR plane")
+  //      TODO("2. Invoke addRenderableToScene once a tap is executed over the AR plane")
 
 
         arFragment.setOnTapArPlaneListener { hitResult, plane, motionEvent ->
@@ -44,7 +44,7 @@ class AugmentedActivity : AppCompatActivity() {
     private fun initRenderableModel() {
         val modelUri = Uri.parse("model.sfb")
 
-        TODO("1. Init model renderable variable")
+    //    TODO("1. Init model renderable variable")
 
         ModelRenderable.builder()
             .setSource(this, modelUri)
@@ -53,14 +53,10 @@ class AugmentedActivity : AppCompatActivity() {
             .thenAccept{renderable = it}
 
 
-          // .exceptionally
-         //  {
-           //    Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG)
-            //   null
-
-
-
-         //  }
+           .exceptionally{
+               Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG)
+               null
+           }
 
     }
 
@@ -68,19 +64,19 @@ class AugmentedActivity : AppCompatActivity() {
 
 
     private fun addRenderableToScene(anchor: Anchor, renderable: Renderable?) {
-        TODO("3. Build an anchor node and set the AR scene to be its parent")
+    //    TODO("3. Build an anchor node and set the AR scene to be its parent")
 
         val anchorNode = AnchorNode(anchor)
         anchorNode.setParent(arFragment!!.arSceneView.scene)
 
 
-        TODO("4. Build an transformable node and set the previously anchor node to be its parent")
+     //   TODO("4. Build an transformable node and set the previously anchor node to be its parent")
 
         val transformableNode = TransformableNode(arFragment!!.transformationSystem)
 
         transformableNode.setParent(anchorNode)
 
-        TODO("5. Assign node's renderable property to previously loaded renderable")
+     //   TODO("5. Assign node's renderable property to previously loaded renderable")
         transformableNode.renderable = renderable
 
 
